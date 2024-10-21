@@ -30,13 +30,16 @@ VIDURKIS = (JUODA_SPALVA + STALO_REIKSME) / 2
 
 # Write your program here.
 
-ev3.speaker.beep()
-while True:
-    if colorSensor.reflection() > VIDURKIS:
-        robot.drive(100,0)
+wait(3000)
+while True: 
+    if ultrasonicSensor.distance() > 300:
+        robot.drive(50, 180)
     else:
-        robot.stop()
-        robot.straight(-200)
-        robot.turn(180) 
-        # robot.straight(-100)
+        while True:
+            if colorSensor.reflection() > VIDURKIS:
+                robot.drive(100, 0)
+            else:
+                robot.straight(-150)
+                break
+
     
