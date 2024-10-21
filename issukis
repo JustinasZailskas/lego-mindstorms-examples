@@ -1,0 +1,10 @@
+while True:
+    if ultrasonicSensor.distance() > 300:
+        robot.drive(50, 180)
+    else:
+        while True:
+            if colorSensor.reflection() > AVERAGE:
+                robot.drive(100, 0)
+            else:
+                robot.straight(-150)
+                break
