@@ -19,16 +19,24 @@ right_motor = Motor(Port.C)
 
 # Inicijuojami jutikliai
 ultrasonicSensor = UltrasonicSensor(Port.S4)
+colorSensor = ColorSensor(Port.S1)
 
 # Inicijuojama roboto važiuoklė.
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+#colors
+JUODA_SPALVA = 7
+STALO_REIKSME = 29
+VIDURKIS = (JUODA_SPALVA + STALO_REIKSME) / 2
 
 # Write your program here.
+
 ev3.speaker.beep()
 while True:
-    if ultrasonicSensor.distance() > 250:
+    if colorSensor.reflection() > VIDURKIS:
         robot.drive(100,0)
     else:
-        robot.stop() 
+        robot.stop()
+        robot.straight(-200)
+        robot.turn(180) 
         # robot.straight(-100)
     

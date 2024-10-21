@@ -13,7 +13,7 @@ colorSensor = ColorSensor (Port.S1)
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 #colors
 JUODA_SPALVA = 7
-STALO_REIKSME = 31
+STALO_REIKSME = 29
 VIDURKIS = (JUDA_SPALVA + STALO_REIKSME) / 2
 # Programos pagrindine dalis.
 robot.straight (100)
